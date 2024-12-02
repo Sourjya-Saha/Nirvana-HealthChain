@@ -94,24 +94,25 @@ const TestimonialsColumn = (props: {
 
     {[...new Array(2)].fill(0).map((_,index)=>(
       <React.Fragment key={index}>
-        {props.testimonials.map(({ text, imageSrc, name, username }) => (
-      <div className="card">
-        <div>{text}</div>
-        <div className="flex items-center gap-2 mt-5">
-          <Image
-            src={imageSrc}
-            alt="image"
-            width={40}
-            height={40}
-            className="h-10 w-19 rounded-full"
-          />
-          <div className="flex flex-col">
-            <div className="bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text text-[19px] font-medium tracking-tighter leading-5">{name}</div>
-            <div className="leading-5 tracking-tight">{username}</div>
-          </div>
-        </div>
+      {props.testimonials.map(({ text, imageSrc, name, username }, index) => (
+  <div className="card" key={name || index}>
+    <div>{text}</div>
+    <div className="flex items-center gap-2 mt-5">
+      <Image
+        src={imageSrc}
+        alt="image"
+        width={40}
+        height={40}
+        className="h-10 w-19 rounded-full"
+      />
+      <div className="flex flex-col">
+        <div className="bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text text-[19px] font-medium tracking-tighter leading-5">{name}</div>
+        <div className="leading-5 tracking-tight">{username}</div>
       </div>
-    ))}
+    </div>
+  </div>
+))}
+
 
       </React.Fragment>
     ))}
